@@ -27,7 +27,7 @@ public class BankAccountGraphQLController {
     public List<BankAccount> accountsList(){
         return bankAccountRepository.findAll();
     }
-    @QueryMapping
+    @QueryMapping(name = "accountById")
     public BankAccount bankAccountById(@Argument String id){
         return bankAccountRepository.findById(id).orElseThrow(()->new RuntimeException(String.format("Account %s not found",id)));
     }
